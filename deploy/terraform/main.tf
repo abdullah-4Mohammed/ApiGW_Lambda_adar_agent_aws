@@ -1,6 +1,3 @@
-# account id, used to make the web bucket name unique
-data "aws_caller_identity" "current" {}
-
 data "archive_file" "lambda_zip" {
   type        = "zip"
   source_file = "${path.module}/../../src/lambda/lambda.py"
