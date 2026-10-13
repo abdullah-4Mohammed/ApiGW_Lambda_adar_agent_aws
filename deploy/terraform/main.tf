@@ -1,3 +1,6 @@
+# account id, used to make the web bucket name unique
+data "aws_caller_identity" "current" {}
+
 data "archive_file" "lambda_zip" {
   type        = "zip"
   source_file = "${path.module}/../../src/lambda/lambda.py"
@@ -58,6 +61,9 @@ resource "aws_api_gateway_deployment" "api_deployment" {
       aws_api_gateway_resource.analyse.id,
       aws_api_gateway_method.api_method.id,
       aws_api_gateway_integration.api_integration.id,
+      aws_api_gateway_integration.options.id,
+      aws_api_gateway_integration_response.options.id,
+      aws_api_gateway_gateway_response.cors_4xx.id,
     ]))
   }
 
