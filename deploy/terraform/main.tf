@@ -9,7 +9,7 @@ resource "aws_lambda_function" "lam" {
   function_name = "${local.resourceName}-lam"
   handler = "lambda.handler"
   runtime = "python3.9"
-  role = aws_iam_role.role.arn
+  role = aws_iam_role.lambda_role.arn
   filename = data.archive_file.lambda_zip.output_path
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 }
