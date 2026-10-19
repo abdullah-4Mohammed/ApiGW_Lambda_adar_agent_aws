@@ -12,4 +12,4 @@ A serverless text analyser API on AWS. Send it text and it returns the character
 - Azure DevOps Pipelines (CI/CD)
 
 ## License
-See [LICENSE](LICENSE).
+See [LICENSE.md](LICENSE.md).
